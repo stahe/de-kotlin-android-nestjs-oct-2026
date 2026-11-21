@@ -1,0 +1,1434 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ein Client-Server-Beispiel mit Kotlin/NestJS">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/de-kotlin-android-nestjs-oct-2026/kapitel-2---installation-des-nestjs-servers.html">
+      
+      
+        <link rel="prev" href="kapitel-1---einrichtung-der-arbeitsumgebung.html">
+      
+      
+        <link rel="next" href="kapitel-3---einfuhrung-in-android-und-jetpack-compose.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>3. Kapitel 2 - Installation des [NestJS]-Servers - Ein Client-Server-Beispiel mit Kotlin/NestJS</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Ein Client-Server-Beispiel mit Kotlin/NestJS";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-kapitel-2-installation-des-nestjs-servers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Ein Client-Server-Beispiel mit Kotlin/NestJS" class="md-header__button md-logo" aria-label="Ein Client-Server-Beispiel mit Kotlin/NestJS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ein Client-Server-Beispiel mit Kotlin/NestJS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Kapitel 2 - Installation des [NestJS]-Servers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum dunklen Modus wechseln"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Zum dunklen Modus wechseln" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum hellen Modus wechseln"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Zum hellen Modus wechseln" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/de-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Ein Client-Server-Beispiel mit Kotlin/NestJS" class="md-nav__button md-logo" aria-label="Ein Client-Server-Beispiel mit Kotlin/NestJS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ein Client-Server-Beispiel mit Kotlin/NestJS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/de-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Willkommen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="einfuhrung.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-1---einrichtung-der-arbeitsumgebung.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Kapitel 1 - Einrichtung der Arbeitsumgebung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Kapitel 2 - Installation des [NestJS]-Servers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="kapitel-2---installation-des-nestjs-servers.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Kapitel 2 - Installation des [NestJS]-Servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-laragon-installieren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1. Laragon installieren
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-installation-und-konfiguration-des-nestjs-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2. Installation und Konfiguration des [NestJS]-Servers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-die-datenbank-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3. Die Datenbank erstellen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3. Die Datenbank erstellen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-databasedbrdvmedecinssql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1. [database/dbrdvmedecins.sql]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-das-skript-mit-heidisql-ausfuhren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2. Das Skript mit HeidiSQL ausführen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-den-nestjs-server-starten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4. Den [NestJS]-Server starten
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-den-server-mit-einem-browser-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5. Den Server mit einem Browser testen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-den-nestjs-server-mit-postman-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6. Den [NestJS]-Server mit Postman testen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.6. Den [NestJS]-Server mit Postman testen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#361-anmelden-und-ein-token-erhalten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6.1. Anmelden und ein Token erhalten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#362-eine-geschutzte-route-mit-dem-token-aufrufen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6.2. Eine geschützte Route mit dem Token aufrufen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#363-die-post-routen-addappointment-deleteappointment-testen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6.3. Die POST-Routen (/addAppointment, /deleteAppointment) testen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#37-den-kotlin-client-zum-ersten-mal-starten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7. Den Kotlin-Client zum ersten Mal starten
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-3---einfuhrung-in-android-und-jetpack-compose.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kapitel 3 - Einführung in Android und Jetpack Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-4---der-kotlin-client-fur-die-anwendung-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Kapitel 4 - Der Kotlin-Client für die Anwendung RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-5---ausfuhrung-der-app-emulator-smartphone-apk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Kapitel 5 - Ausführung der App: Emulator, Smartphone, APK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-6---fazit-und-nachste-schritte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Kapitel 6 - Fazit und nächste Schritte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><span id="chapitre-2-installation-du-serveur-nestjs" name="chapitre-2-installation-du-serveur-nestjs" class="odt-bookmark-anchor"></span></p>
+<h1 id="3-kapitel-2-installation-des-nestjs-servers">3. <span style="color: #2e74b5">Kapitel 2 - Installation des [NestJS]-Servers</span></h1>
+<p>Der in diesem Dokument beschriebene <em>[Kotlin]</em>-Client benötigt einen Server, den er abfragen kann: den <em>[NestJS]</em>-Server für die Anwendung <em>[RdvMedecins]</em>, der diesem Dokument im Ordner <em>[rdvmedecins-nestjs-server]</em> beiliegt. Da dieses Dokument den Schwerpunkt auf <em>[Kotlin]</em> legt, wird dieser Server als „Blackbox“ behandelt: Dieses Kapitel erklärt, wie man ihn installiert, konfiguriert, seine <em>[MySQL]</em>-Datenbank erstellt, ihn startet und testet, untersucht aber seinen Code nicht. Leser, die <em>[NestJS]</em> kennenlernen möchten, finden das Dokument <a href="https://stahe.github.io/de-typescript-nestjs-sept-2026/"><u><span style="color: #0563c1">„Einführung in die Sprache TypeScript und das Framework NestJS“ (2026)</span></u></a>.</p>
+<p>Dieses Kapitel ist eine exakte Wiederholung von Kapitel 2 des Kurses <a href="https://stahe.github.io/de-flutter-nestjs-sept-2026/"><u><span style="color: #0563c1">„Ein Client-Server-Beispiel - Flutter / NestJS (2026)</span></u></a>“: Der Server, seine Datenbank und seine Tests sind genau dieselben. Leser, die diesen Server bereits für den Flutter-Kurs installiert haben, können direkt zum letzten Abschnitt dieses Kapitels springen, „Den Kotlin-Client zum ersten Mal starten“.</p>
+<p><span id="installation-de-laragon" name="installation-de-laragon" class="odt-bookmark-anchor"></span></p>
+<h2 id="31-laragon-installieren">3.1. <span style="color: #2e74b5">Laragon installieren</span></h2>
+<p>Um die <em>[MySQL]</em>-Datenbank zu erstellen, die vom <em>[NestJS]</em>-Server verwendet wird, nutzen wir das Werkzeug Laragon. Stand September 2026 ist Laragon unter der URL <em>[Download Laragon – Fast &amp; Modern Dev Environment ]</em> erhältlich. Laragon enthält Werkzeuge, mit denen sich ein PHP-Server und der DBMS-Server [MySQL] installieren lassen:</p>
+<p><img src="images/10000000000006440000030C86481A8B.png" width="643" height="312" style="width:17cm;height:8.266cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C86481A8B.png" /></p>
+<ul>
+<li>in [1] ein Apache-Webserver;</li>
+<li>in [2] das DBMS [MySQL];</li>
+<li>in [3] ein Werkzeug für Nachrichten, das wir nicht verwenden werden;</li>
+<li>[4] startet alle Dienste (Apache, <em>[MySQL]</em>, MailPit);</li>
+<li>[5] zeigt die Webseite der URL <em>[http://localhost]</em> an. Standardmäßig verweist diese URL auf den Ordner &lt;laragon-install&gt;\www, wobei &lt;laragon-install&gt; der Installationsordner von Laragon ist;</li>
+<li>in [6] wird das Werkzeug HeidiSQL gestartet, mit dem sich MySQL-Datenbanken verwalten lassen. Mit diesem Werkzeug erstellen wir die Datenbank, die vom Server <em>[RdvMedecins]</em> verwendet wird;</li>
+<li>in [7] wird ein Terminal geöffnet, in dessen PATH sich alle von Laragon benötigten Programme befinden;</li>
+<li>in [8] wird der Windows-Explorer in dem Ordner geöffnet, der der URL <em>[http://localhost]</em> zugeordnet ist;</li>
+</ul>
+<p>Der Installationsordner von Laragon enthält die folgenden Elemente:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002DB00000324CA05B23E.png" width="314" height="345" style="display:inline-block; margin:4px;width:8.306cm;height:9.133cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DB00000324CA05B23E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>In [1] enthält der Ordner <em>[bin]</em> zahlreiche Anwendungen:</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/1000000000000329000004CE02139058.png" width="404" height="615" style="display:inline-block; margin:4px;width:10.7cm;height:16.27cm;" class="odt-zoomable" data-zoom-src="images/1000000000000329000004CE02139058.png" /></td></tr></table>
+
+<ul>
+<li>in [1] der Apache-Webserver;</li>
+<li>in [2] ein Befehlszeilen-Terminal;</li>
+<li>[3] ein Client (<em>[git])</em> zur Verwaltung verschiedener Versionen eines Projekts;</li>
+<li>[4] ein Datenbankverwaltungswerkzeug;</li>
+<li>[5] ein Mail-Manager;</li>
+<li>[6] das DBMS [MySQL];</li>
+<li>[7] ein weiterer Webserver;</li>
+<li>in [8] <em>[node.js]</em> zum Ausführen von JavaScript-Skripten;</li>
+<li>[9] ein Texteditor;</li>
+<li>[10] der PHP-Interpreter;</li>
+<li>[11] der <em>[Python]</em>-Interpreter;</li>
+<li>[12] ein Cache-Server;</li>
+</ul>
+<p>Laragon bringt eine umfassende Entwicklungsumgebung mit. In diesem Kurs verwenden wir nur das DBMS [MySQL] [6] und das Werkzeug <em>[heidisql]</em> zu dessen grafischer Verwaltung;</p>
+<p><span id="installation-et-configuration-du-serveur-nestjs" name="installation-et-configuration-du-serveur-nestjs" class="odt-bookmark-anchor"></span></p>
+<h2 id="32-installation-und-konfiguration-des-nestjs-servers">3.2. <span style="color: #2e74b5">Installation und Konfiguration des [NestJS]-Servers</span></h2>
+<p>Der Ordner <em>[rdvmedecins-nestjs-server]</em> hat die folgende Verzeichnisstruktur:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>rdvmedecins-nestjs-server/
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>├── package.json                  # Abhängigkeiten und npm-Skripte
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>├── tsconfig.json                 # Konfiguration des TypeScript-Compilers
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>├── nest-cli.json                 # Konfiguration der NestJS-CLI
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>├── .env.example                  # Vorlage für die Konfigurationsdatei .env
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>├── database/
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>│   └── dbrdvmedecins.sql         # Skript zur Erstellung der Datenbank
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>└── src/
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    ├── main.ts                   # Einstiegspunkt des Servers
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    ├── app.module.ts             # Wurzelmodul
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    ├── config/                   # Datenbankverbindung
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    ├── entities/                 # TypeORM-Entitäten (eine Klasse pro Tabelle)
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    ├── domain/                   # Geschäftsobjekte
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    ├── repositories/             # Datenzugriff (DAO-Schicht)
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    ├── business/                 # Geschäftsschicht
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    ├── web/                      # JSON-Controller und Antwortmodelle
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    └── auth/                     # JWT-Authentifizierung und Rollen
+</code></pre></div></td></tr></table></div>
+<p>Jeder Unterordner von <em>[src/]</em> enthält eine eigene <em>[README.md]-Datei</em>, die den Zweck der enthaltenen Dateien zusammenfasst. Der Quellcode dieser Dateien wird in diesem Dokument nicht behandelt.</p>
+<p>Geben Sie im Ordner <em>[rdvmedecins-nestjs-server]</em> in einem Terminal die folgenden Befehle ein:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>npm install
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>cp .env.example .env
+</code></pre></div></td></tr></table></div>
+<p>Die Datei <em>[.env]</em> legt Umgebungsvariablen fest:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># -----------------------------------------------------------------------</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># Beispiel-Konfigurationsdatei.</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Diese Datei nach [.env] kopieren und die Werte an den eigenen Rechner anpassen.</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Die Datei [.env] darf niemals weitergegeben oder committet werden (Passwörter).</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1"># -----------------------------------------------------------------------</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># Port, auf dem der NestJS-Server lauscht (der ursprüngliche Spring-Server lauschte auf 8080)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="na">PORT</span><span class="o">=</span><span class="s">8080</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># Verbindungsparameter der MySQL-Datenbank [dbrdvmedecins]</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="na">DB_HOST</span><span class="o">=</span><span class="s">localhost</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="na">DB_PORT</span><span class="o">=</span><span class="s">3306</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="na">DB_USERNAME</span><span class="o">=</span><span class="s">root</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="na">DB_PASSWORD</span><span class="o">=</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="na">DB_DATABASE</span><span class="o">=</span><span class="s">dbrdvmedecins</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="c1"># nur in der Entwicklung: TypeORM kann die Tabellen automatisch aus den Entitäten</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="c1"># erstellen/aktualisieren. Hier ist das deaktiviert, da wir ein eigenes</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="c1"># SQL-Skript [database/dbrdvmedecins.sql] bereitstellen, wie schon das ursprüngliche Spring-Projekt.</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="na">DB_SYNCHRONIZE</span><span class="o">=</span><span class="s">false</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="c1"># -----------------------------------------------------------------------</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="c1"># Authentifizierung (siehe src/auth/)</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="c1"># -----------------------------------------------------------------------</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="c1"># geheimer Schlüssel zum Signieren/Prüfen von JWT-Tokens - MUSS geändert werden</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="c1"># in der Produktion (eine lange Zufallszeichenfolge, niemals committen).</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="na">JWT_SECRET</span><span class="o">=</span><span class="s">change-me-to-a-long-random-string</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="c1"># Gültigkeitsdauer eines JWT-Tokens (siehe die Dokumentation der Bibliothek [ms]:</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="c1"># "60", "2h", "7d"...)</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="na">JWT_EXPIRES_IN</span><span class="o">=</span><span class="s">2h</span>
+</code></pre></div></td></tr></table></div>
+<p>Passen Sie die neu erstellte Datei <em>[.env]</em> an Ihre <em>[MySQL]</em>-Installation an (Benutzername, Passwort, Port). Da die Authentifizierung hinzugefügt wurde, enthält diese Datei außerdem einen Schlüssel namens JWT_SECRET: Der Beispielwert genügt, um diesem Dokument zu folgen, muss aber vor jedem realen Einsatz durch eine zufällige, nur Ihnen bekannte Zeichenfolge ersetzt werden.</p>
+<p><span id="creation-de-la-base-de-donnees" name="creation-de-la-base-de-donnees" class="odt-bookmark-anchor"></span></p>
+<h2 id="33-die-datenbank-erstellen">3.3. <span style="color: #2e74b5">Die Datenbank erstellen</span></h2>
+<p>Die Datenbank <em>[dbrdvmedecins]</em> übernimmt die Struktur des ursprünglichen Dokuments (2014, Spring 4 / <em>[MySQL]</em> 5): dieselben Tabellen – <em>[doctors], [clients], [slots], [appointments]</em> –, dieselben Fremdschlüssel, dieselbe Eindeutigkeitsbedingung. Die einzige Neuerung, die mit dem Schritt „Authentifizierung“ dieser Portierung hinzukommt: die Tabelle <em>[users]</em>. Die Beziehungen zwischen diesen Tabellen sind wie folgt: Ein Arzt ([doctors]) hat mehrere Zeitfenster ([slots], Fremdschlüssel [doctor_id]); ein Termin ([appointments]) verknüpft einen Tag, ein Zeitfenster (und damit einen Arzt) und einen Kunden (<em>[clients]</em>); die Tabelle <em>[users]</em> ist von den anderen vier unabhängig: Sie dient ausschließlich der Authentifizierung.</p>
+<p><span id="databasedbrdvmedecinssql" name="databasedbrdvmedecinssql" class="odt-bookmark-anchor"></span></p>
+<h3 id="331-databasedbrdvmedecinssql">3.3.1. <span style="color: #1f4d78">[database/dbrdvmedecins.sql]</span></h3>
+<p><img src="images/1000000000000280000002CD4391708B.png" width="320" height="359" style="width:8.467cm;height:9.486cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000280000002CD4391708B.png" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-3-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-3-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-3-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-3-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-3-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-3-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-3-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-3-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-3-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-3-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-3-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-3-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-3-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-3-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-3-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-3-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-3-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-3-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-3-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-3-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-3-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-3-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-3-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-3-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-3-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-3-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-3-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-3-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-3-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-3-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-3-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-3-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-3-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-3-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-3-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-3-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-3-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-3-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-3-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-3-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-3-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-3-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-3-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-3-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-3-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-3-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-3-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-3-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-3-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-3-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-3-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-3-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-3-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-3-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-3-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-3-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-3-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-3-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-3-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-3-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-3-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-3-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-3-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-3-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-3-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-3-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-3-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-3-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-3-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-3-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-3-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-3-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-3-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-3-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-3-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-3-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-3-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-3-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-3-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-3-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-3-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-3-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-3-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-3-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-3-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-3-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-3-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-3-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-3-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-3-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-3-100">100</a></span>
+<span class="normal"><a href="#__codelineno-3-101">101</a></span>
+<span class="normal"><a href="#__codelineno-3-102">102</a></span>
+<span class="normal"><a href="#__codelineno-3-103">103</a></span>
+<span class="normal"><a href="#__codelineno-3-104">104</a></span>
+<span class="normal"><a href="#__codelineno-3-105">105</a></span>
+<span class="normal"><a href="#__codelineno-3-106">106</a></span>
+<span class="normal"><a href="#__codelineno-3-107">107</a></span>
+<span class="normal"><a href="#__codelineno-3-108">108</a></span>
+<span class="normal"><a href="#__codelineno-3-109">109</a></span>
+<span class="normal"><a href="#__codelineno-3-110">110</a></span>
+<span class="normal"><a href="#__codelineno-3-111">111</a></span>
+<span class="normal"><a href="#__codelineno-3-112">112</a></span>
+<span class="normal"><a href="#__codelineno-3-113">113</a></span>
+<span class="normal"><a href="#__codelineno-3-114">114</a></span>
+<span class="normal"><a href="#__codelineno-3-115">115</a></span>
+<span class="normal"><a href="#__codelineno-3-116">116</a></span>
+<span class="normal"><a href="#__codelineno-3-117">117</a></span>
+<span class="normal"><a href="#__codelineno-3-118">118</a></span>
+<span class="normal"><a href="#__codelineno-3-119">119</a></span>
+<span class="normal"><a href="#__codelineno-3-120">120</a></span>
+<span class="normal"><a href="#__codelineno-3-121">121</a></span>
+<span class="normal"><a href="#__codelineno-3-122">122</a></span>
+<span class="normal"><a href="#__codelineno-3-123">123</a></span>
+<span class="normal"><a href="#__codelineno-3-124">124</a></span>
+<span class="normal"><a href="#__codelineno-3-125">125</a></span>
+<span class="normal"><a href="#__codelineno-3-126">126</a></span>
+<span class="normal"><a href="#__codelineno-3-127">127</a></span>
+<span class="normal"><a href="#__codelineno-3-128">128</a></span>
+<span class="normal"><a href="#__codelineno-3-129">129</a></span>
+<span class="normal"><a href="#__codelineno-3-130">130</a></span>
+<span class="normal"><a href="#__codelineno-3-131">131</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">-- =========================================================================</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1">-- Datenbank [dbrdvmedecins] - MySQL 8</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">--</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1">-- Dieses Skript bildet EXAKT das relationale Schema des ursprünglichen Dokuments nach</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1">-- (2014, Spring 4 / Spring Data / MySQL 5): gleiche Tabellen, gleiche Spalten,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1">-- gleiche Fremdschlüssel, gleiche Eindeutigkeitsbedingung. Nur die Datenbank-Engine</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1">-- ändert ihren Namen (MySQL 5 -&gt; MySQL 8), nicht die Struktur.</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="c1">--</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1">-- Die Tabelle [users] kommt jetzt hinzu (Schritt „Authentifizierung“ dieser</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1">-- Portierung). Das ursprüngliche Dokument verwendete DREI Tabellen (users, roles,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1">-- users_roles), damit ein Benutzer MEHRERE Rollen haben kann.</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="c1">-- Da diese Anwendung nur zwei sich gegenseitig ausschließende Rollen kennt</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1">-- (ADMIN, USER), vereinfachen wir hier auf eine einzige Spalte [role]</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="c1">-- in der Tabelle [users], statt die ursprüngliche Many-to-Many-</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="c1">-- Beziehung nachzubauen - eine bewusste didaktische Vereinfachung, dokumentiert</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="c1">-- im Kapitel „Authentifizierung“ des Kurses.</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="c1">-- =========================================================================</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">dbrdvmedecins</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="n">USE</span><span class="w"> </span><span class="n">dbrdvmedecins</span><span class="p">;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="c1">-- bei jeder Ausführung des Skripts beginnen wir wieder mit einer leeren Datenbank (praktisch in der Entwicklung)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">appointments</span><span class="p">;</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">slots</span><span class="p">;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">clients</span><span class="p">;</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">doctors</span><span class="p">;</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="n">users</span><span class="p">;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="c1">-- Tabelle [doctors]: die Ärzte der Praxis</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">doctors</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">  </span><span class="n">id</span><span class="w">         </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w">   </span><span class="c1">-- primary key (technical identifier)</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">  </span><span class="k">version</span><span class="w">    </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">            </span><span class="c1">-- row version number (optimistic lock)</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">  </span><span class="n">title</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">              </span><span class="c1">-- Melle, Mme, Mr</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">  </span><span class="n">last_name</span><span class="w">  </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">  </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="p">);</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="c1">-- Tabelle [clients]: die Patienten der Ärzte</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">  </span><span class="n">id</span><span class="w">         </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">  </span><span class="k">version</span><span class="w">    </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">  </span><span class="n">title</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w">  </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">  </span><span class="n">last_name</span><span class="w">  </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">  </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="p">);</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a><span class="c1">-- Tabelle [slots]: die Zeitfenster jedes Arztes</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">slots</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="w">  </span><span class="n">id</span><span class="w">           </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="w">  </span><span class="k">version</span><span class="w">      </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="w">  </span><span class="n">doctor_id</span><span class="w">    </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                     </span><span class="c1">-- foreign key -&gt; doctors(id)</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a><span class="w">  </span><span class="n">start_hour</span><span class="w">   </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                     </span><span class="c1">-- start hour of the slot</span>
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a><span class="w">  </span><span class="n">start_minute</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                     </span><span class="c1">-- start minute of the slot</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="w">  </span><span class="n">end_hour</span><span class="w">     </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                     </span><span class="c1">-- end hour of the slot</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62"></a><span class="w">  </span><span class="n">end_minute</span><span class="w">   </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                     </span><span class="c1">-- end minute of the slot</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_slots_doctor</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">doctor_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">doctors</span><span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64"></a><span class="p">);</span>
+<a id="__codelineno-3-65" name="__codelineno-3-65"></a>
+<a id="__codelineno-3-66" name="__codelineno-3-66"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-67" name="__codelineno-3-67"></a><span class="c1">-- Tabelle [appointments]: die von den Clients gebuchten Termine</span>
+<a id="__codelineno-3-68" name="__codelineno-3-68"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-69" name="__codelineno-3-69"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">appointments</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-70" name="__codelineno-3-70"></a><span class="w">  </span><span class="n">id</span><span class="w">         </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-3-71" name="__codelineno-3-71"></a><span class="w">  </span><span class="k">version</span><span class="w">    </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-72" name="__codelineno-3-72"></a><span class="w">  </span><span class="k">day</span><span class="w">        </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                      </span><span class="c1">-- day of the appointment</span>
+<a id="__codelineno-3-73" name="__codelineno-3-73"></a><span class="w">  </span><span class="n">slot_id</span><span class="w">    </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                       </span><span class="c1">-- foreign key -&gt; slots(id)</span>
+<a id="__codelineno-3-74" name="__codelineno-3-74"></a><span class="w">  </span><span class="n">client_id</span><span class="w">  </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                       </span><span class="c1">-- foreign key -&gt; clients(id)</span>
+<a id="__codelineno-3-75" name="__codelineno-3-75"></a><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_appointments_slot</span><span class="w">   </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">slot_id</span><span class="p">)</span><span class="w">   </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">slots</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+<a id="__codelineno-3-76" name="__codelineno-3-76"></a><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_appointments_client</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">clients</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+<a id="__codelineno-3-77" name="__codelineno-3-77"></a><span class="w">  </span><span class="c1">-- dasselbe Zeitfenster kann am selben Tag nur einmal gebucht werden</span>
+<a id="__codelineno-3-78" name="__codelineno-3-78"></a><span class="w">  </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">unq1_appointments</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">slot_id</span><span class="p">)</span>
+<a id="__codelineno-3-79" name="__codelineno-3-79"></a><span class="p">);</span>
+<a id="__codelineno-3-80" name="__codelineno-3-80"></a>
+<a id="__codelineno-3-81" name="__codelineno-3-81"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-82" name="__codelineno-3-82"></a><span class="c1">-- Tabelle [users]: die Benutzer, die sich an der Anwendung anmelden dürfen</span>
+<a id="__codelineno-3-83" name="__codelineno-3-83"></a><span class="c1">-- -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-84" name="__codelineno-3-84"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-85" name="__codelineno-3-85"></a><span class="w">  </span><span class="n">id</span><span class="w">       </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-3-86" name="__codelineno-3-86"></a><span class="w">  </span><span class="k">version</span><span class="w">  </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-87" name="__codelineno-3-87"></a><span class="w">  </span><span class="n">login</span><span class="w">    </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span><span class="w">          </span><span class="c1">-- login identifier</span>
+<a id="__codelineno-3-88" name="__codelineno-3-88"></a><span class="w">  </span><span class="n">password</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                </span><span class="c1">-- HASHED password (bcrypt) - never in clear</span>
+<a id="__codelineno-3-89" name="__codelineno-3-89"></a><span class="w">  </span><span class="n">name</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">                 </span><span class="c1">-- name displayed once logged in</span>
+<a id="__codelineno-3-90" name="__codelineno-3-90"></a><span class="w">  </span><span class="k">role</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w">                  </span><span class="c1">-- 'ADMIN' or 'USER'</span>
+<a id="__codelineno-3-91" name="__codelineno-3-91"></a><span class="p">);</span>
+<a id="__codelineno-3-92" name="__codelineno-3-92"></a>
+<a id="__codelineno-3-93" name="__codelineno-3-93"></a><span class="c1">-- =========================================================================</span>
+<a id="__codelineno-3-94" name="__codelineno-3-94"></a><span class="c1">-- Demodaten</span>
+<a id="__codelineno-3-95" name="__codelineno-3-95"></a><span class="c1">-- =========================================================================</span>
+<a id="__codelineno-3-96" name="__codelineno-3-96"></a>
+<a id="__codelineno-3-97" name="__codelineno-3-97"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">doctors</span><span class="w"> </span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-3-98" name="__codelineno-3-98"></a><span class="w">  </span><span class="p">(</span><span class="s1">'Mme'</span><span class="p">,</span><span class="w"> </span><span class="s1">'PELISSIER'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Marie'</span><span class="p">),</span>
+<a id="__codelineno-3-99" name="__codelineno-3-99"></a><span class="w">  </span><span class="p">(</span><span class="s1">'Mr'</span><span class="p">,</span><span class="w">  </span><span class="s1">'TATOU'</span><span class="p">,</span><span class="w">      </span><span class="s1">'Paul'</span><span class="p">),</span>
+<a id="__codelineno-3-100" name="__codelineno-3-100"></a><span class="w">  </span><span class="p">(</span><span class="s1">'Melle'</span><span class="p">,</span><span class="s1">'DUPONT'</span><span class="p">,</span><span class="w">    </span><span class="s1">'Sophie'</span><span class="p">);</span>
+<a id="__codelineno-3-101" name="__codelineno-3-101"></a>
+<a id="__codelineno-3-102" name="__codelineno-3-102"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="p">(</span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">last_name</span><span class="p">,</span><span class="w"> </span><span class="n">first_name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-3-103" name="__codelineno-3-103"></a><span class="w">  </span><span class="p">(</span><span class="s1">'Mr'</span><span class="p">,</span><span class="w">   </span><span class="s1">'MARTIN'</span><span class="p">,</span><span class="w">   </span><span class="s1">'Jean'</span><span class="p">),</span>
+<a id="__codelineno-3-104" name="__codelineno-3-104"></a><span class="w">  </span><span class="p">(</span><span class="s1">'Mme'</span><span class="p">,</span><span class="w">  </span><span class="s1">'DURAND'</span><span class="p">,</span><span class="w">   </span><span class="s1">'Alice'</span><span class="p">),</span>
+<a id="__codelineno-3-105" name="__codelineno-3-105"></a><span class="w">  </span><span class="p">(</span><span class="s1">'Melle'</span><span class="p">,</span><span class="s1">'BISTROU'</span><span class="p">,</span><span class="w">  </span><span class="s1">'Brigitte'</span><span class="p">),</span>
+<a id="__codelineno-3-106" name="__codelineno-3-106"></a><span class="w">  </span><span class="p">(</span><span class="s1">'Mr'</span><span class="p">,</span><span class="w">   </span><span class="s1">'GERMAN'</span><span class="p">,</span><span class="w">   </span><span class="s1">'Luc'</span><span class="p">);</span>
+<a id="__codelineno-3-107" name="__codelineno-3-107"></a>
+<a id="__codelineno-3-108" name="__codelineno-3-108"></a><span class="c1">-- Zeitfenster des Arztes PELISSIER (doctor_id = 1): von 8:00 bis 12:00 Uhr in 20-Minuten-Schritten</span>
+<a id="__codelineno-3-109" name="__codelineno-3-109"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">slots</span><span class="w"> </span><span class="p">(</span><span class="n">doctor_id</span><span class="p">,</span><span class="w"> </span><span class="n">start_hour</span><span class="p">,</span><span class="w"> </span><span class="n">start_minute</span><span class="p">,</span><span class="w"> </span><span class="n">end_hour</span><span class="p">,</span><span class="w"> </span><span class="n">end_minute</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-3-110" name="__codelineno-3-110"></a><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-3-111" name="__codelineno-3-111"></a><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-3-112" name="__codelineno-3-112"></a><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-3-113" name="__codelineno-3-113"></a><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-114" name="__codelineno-3-114"></a>
+<a id="__codelineno-3-115" name="__codelineno-3-115"></a><span class="c1">-- Zeitfenster des Arztes TATOU (doctor_id = 2): von 14:00 bis 18:00 Uhr in 20-Minuten-Schritten</span>
+<a id="__codelineno-3-116" name="__codelineno-3-116"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">slots</span><span class="w"> </span><span class="p">(</span><span class="n">doctor_id</span><span class="p">,</span><span class="w"> </span><span class="n">start_hour</span><span class="p">,</span><span class="w"> </span><span class="n">start_minute</span><span class="p">,</span><span class="w"> </span><span class="n">end_hour</span><span class="p">,</span><span class="w"> </span><span class="n">end_minute</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-3-117" name="__codelineno-3-117"></a><span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-3-118" name="__codelineno-3-118"></a><span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-3-119" name="__codelineno-3-119"></a><span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-3-120" name="__codelineno-3-120"></a><span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-3-121" name="__codelineno-3-121"></a>
+<a id="__codelineno-3-122" name="__codelineno-3-122"></a><span class="c1">-- ein bereits gebuchter Termin, damit man sofort ein belegtes Zeitfenster im Terminkalender sieht</span>
+<a id="__codelineno-3-123" name="__codelineno-3-123"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">appointments</span><span class="w"> </span><span class="p">(</span><span class="k">day</span><span class="p">,</span><span class="w"> </span><span class="n">slot_id</span><span class="p">,</span><span class="w"> </span><span class="n">client_id</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-3-124" name="__codelineno-3-124"></a><span class="w">  </span><span class="p">(</span><span class="n">CURDATE</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<a id="__codelineno-3-125" name="__codelineno-3-125"></a>
+<a id="__codelineno-3-126" name="__codelineno-3-126"></a><span class="c1">-- zwei Demobenutzer: admin/admin (Rolle ADMIN, alle Rechte)</span>
+<a id="__codelineno-3-127" name="__codelineno-3-127"></a><span class="c1">-- und user/user (Rolle USER, nur Lesezugriff) - die Passwörter sind</span>
+<a id="__codelineno-3-128" name="__codelineno-3-128"></a><span class="c1">-- mit bcrypt gehasht (10 Salt-Runden), niemals im Klartext gespeichert.</span>
+<a id="__codelineno-3-129" name="__codelineno-3-129"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="n">login</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">role</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-3-130" name="__codelineno-3-130"></a><span class="w">  </span><span class="p">(</span><span class="s1">'admin'</span><span class="p">,</span><span class="w"> </span><span class="s1">'$2b$10$YSNBJXXHX9mp13nPZb6YGu8M1jR6uvPwO1s2X73z0QAqBR7TOQjoq'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Administrator'</span><span class="p">,</span><span class="w"> </span><span class="s1">'ADMIN'</span><span class="p">),</span>
+<a id="__codelineno-3-131" name="__codelineno-3-131"></a><span class="w">  </span><span class="p">(</span><span class="s1">'user'</span><span class="p">,</span><span class="w">  </span><span class="s1">'$2b$10$6Cvoion7AgJkpYHw5N0jMuWPf8T90J28En56kWBL9PT0bXt7lwW7.'</span><span class="p">,</span><span class="w"> </span><span class="s1">'User'</span><span class="p">,</span><span class="w">          </span><span class="s1">'USER'</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<p>Gehen wir diesen Code durch:</p>
+<ul>
+<li>Zeilen 20–21: <strong><em>[CREATE DATABASE IF NOT EXISTS dbrdvmedecins …]</em></strong> gefolgt von <strong><em>[USE dbrdvmedecins]</em></strong> – erstellt die Datenbank, falls sie noch nicht existiert (Zeichensatz <em>[utf8mb4]</em>, der alle Unicode-Zeichen einschließlich Akzenten unterstützt), und wählt sie dann aus: Alle folgenden Anweisungen beziehen sich auf sie. Diese beiden Zeilen müssen unbedingt ZUERST stehen: Würden sie nach <strong><em>[DROP TABLE …]</em></strong> ausgeführt, schlügen sie fehl, weil keine Datenbank ausgewählt ist (Fehler <em>[No database selected]</em>);</li>
+<li>Zeilen 24–28: <strong><em>[DROP TABLE IF EXISTS …]</em></strong> – das Skript beginnt bei jeder Ausführung mit einer leeren Datenbank, und zwar in umgekehrter Reihenfolge der Abhängigkeiten (beginnend mit <code>appointments</code>, das auf <code>slots</code> und <code>clients</code> verweist, bis hin zu <code>users</code>, auf das niemand verweist): <em>[MySQL]</em> würde sich weigern, eine Tabelle zu löschen, auf die noch ein Fremdschlüssel verweist;</li>
+<li>Zeile 58: <strong><em>[doctor_id INT NOT NULL],</em></strong> dann Zeile 63: <strong><em>[CONSTRAINT fk_slots_doctor FOREIGN KEY …]</em></strong> – ein Zeitfenster gehört immer zu einem Arzt;</li>
+<li>Zeile 78: <strong><em>[CONSTRAINT unq1_appointments UNIQUE (day, slot_id)]</em></strong> – die zentrale Geschäftsregel der Anwendung: Ein einzelnes Zeitfenster kann an einem bestimmten Tag nur einmal gebucht werden. Diese Bedingung, und nur sie, verhindert eine Doppelbuchung – weder der Validator noch die Geschäftslogik-Schicht prüfen sie noch einmal ausdrücklich;</li>
+<li>Zeilen 84–91: <strong><em>[CREATE TABLE users (…)]</em></strong> – die in diesem Schritt hinzugefügte Tabelle. <code>login</code> ist UNIQUE (zwei Benutzer können nicht dieselbe Anmeldekennung haben); <code>password</code> speichert ein mit bcrypt <strong>gehashtes</strong> Passwort (niemals im Klartext); role ist entweder &#x27;ADMIN&#x27; oder &#x27;USER&#x27; – eine einzelne Textspalte, während das ursprüngliche Dokument drei Tabellen (users, roles, users_roles) verwendete, um mehrere Rollen pro Benutzer zu ermöglichen. Da diese Anwendung nur zwei sich gegenseitig ausschließende Rollen benötigt, wäre die ursprüngliche Many-to-many-Beziehung überdimensioniert gewesen;</li>
+<li>Zeilen 129–131: <strong><em>[INSERT INTO users …]</em></strong> – zwei Demo-Konten, admin/admin (Rolle ADMIN) und user/user (Rolle USER), mit bereits per bcrypt gehashten Passwörtern (10 Salting-Runden) – niemals im Klartext, auch nicht in diesem Demo-Skript.</li>
+</ul>
+<p><span id="execution-du-script-avec-heidisql" name="execution-du-script-avec-heidisql" class="odt-bookmark-anchor"></span></p>
+<h3 id="332-das-skript-mit-heidisql-ausfuhren">3.3.2. <span style="color: #1f4d78">Das Skript mit HeidiSQL ausführen</span></h3>
+<p>Um die <em>[MySQL]</em>-Datenbank zu erstellen, die der <em>[NestJS]</em>-Server benötigt, gehen wir wie folgt vor:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000006440000030C352A3F89.png" width="503" height="244" style="display:inline-block; margin:4px;width:13.301cm;height:6.468cm;" class="odt-zoomable" data-zoom-src="images/10000000000006440000030C352A3F89.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;">&nbsp;</td></tr></table>
+
+<ul>
+<li>In [1] müssen alle Dienste gestartet sein;</li>
+<li>in [2] ermöglicht die Option <em>[Database]</em> die Verwaltung der Datenbank;</li>
+</ul>
+<p>Die Option <em>[Database]</em> startet ein Hilfsprogramm namens HeidiSQL:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000008D2000003C91FBD37B4.png" width="621" height="266" style="display:inline-block; margin:4px;width:16.431cm;height:7.05cm;" class="odt-zoomable" data-zoom-src="images/10000000000008D2000003C91FBD37B4.png" /></td></tr></table>
+
+<ul>
+<li>In [1] können Sie verschiedene DBMS-Optionen auswählen. Als Standardwert ist das DBMS MySQL vorgegeben. Das ist in Ordnung;</li>
+<li>in [2] melden Sie sich bei HeidiSQL an;</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000003FD0000018A35CBA47C.png" width="357" height="138" style="display:inline-block; margin:4px;width:9.449cm;height:3.649cm;" class="odt-zoomable" data-zoom-src="images/10000000000003FD0000018A35CBA47C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002A4000001C70316A390.png" width="237" height="159" style="display:inline-block; margin:4px;width:6.26cm;height:4.21cm;" class="odt-zoomable" data-zoom-src="images/10000000000002A4000001C70316A390.png" /></td></tr></table>
+
+<ul>
+<li>In [1-2] führen Sie die SQL-Datei aus und wählen dann die Datei <em>[dbrdvmedecins.sql]</em> aus, die Sie im Ordner <em>[rdvmedecins-nestjs-server/database]</em> finden:</li>
+</ul>
+<p><img src="images/10000000000001CA000002F2946B0D5A.png" width="198" height="324" style="width:5.226cm;height:8.58cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001CA000002F2946B0D5A.png" /></p>
+<p>Die Ausführung der Datei [3] erstellt die Datenbank <em>[dbrdvmedecins]</em>, die vom Server <em>[NestJS]</em> verwendet wird. Um sie anzuzeigen, drücken Sie in HeidiSQL F5, um die Anzeige zu aktualisieren:</p>
+<p><img src="images/10000000000002A50000031EFB250513.png" width="213" height="250" style="width:5.639cm;height:6.609cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002A50000031EFB250513.png" /></p>
+<p>Die Datenbank <em>[dbrdvmedecins]</em> wurde erstellt. Sie können ihren Inhalt ansehen:</p>
+<p><img src="images/100000000000053F00000271DC17B512.png" width="602" height="280" style="width:15.921cm;height:7.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000053F00000271DC17B512.png" /></p>
+<ul>
+<li>In [1-3] die Tabelle <em>[clients]</em>;<ul>
+<li><em>[id]</em> ist der Primärschlüssel der Tabelle;</li>
+<li><em>[version]</em> ist die Versionsnummer der Zeile. Diese Nummer wird bei jeder Änderung der Zeile erhöht;</li>
+<li><em>[title, last_name, first_name]</em> identifizieren die Person;</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/100000000000052A0000026BD3179386.png" width="602" height="282" style="width:15.921cm;height:7.454cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052A0000026BD3179386.png" /></p>
+<ul>
+<li>in [1-3] die Tabelle <em>[doctors]</em>;<ul>
+<li><em>[id]</em> ist der Primärschlüssel der Tabelle;</li>
+<li><em>[version]</em> ist die Versionsnummer der Zeile;</li>
+<li><em>[title, last_name, first_name]</em> identifizieren die Person;</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/10000000000005FE000002C6FB6943F4.png" width="602" height="278" style="width:15.921cm;height:7.368cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005FE000002C6FB6943F4.png" /></p>
+<ul>
+<li>In [1-3] die Tabelle der Termin-Zeitfenster der Ärzte:<ul>
+<li><em>[id]</em>: Primärschlüssel;</li>
+<li><em>[version]</em>: Versionsnummer der Zeile;</li>
+<li><em>[doctor_id]</em>: Fremdschlüssel, der auf den Primärschlüssel des Arztes verweist;</li>
+<li><em>[start_hour, start_minute]</em>: Stunde und Minuten des Beginns des Termins. So bedeutet <em>[8,20]</em> 8:20 Uhr;</li>
+<li><em>[end_hour, end_minute]</em>: Stunde und Minuten des Endes der Sprechstunde. </li>
+</ul>
+</li>
+</ul>
+<p><img src="images/10000000000005EB0000024E23D6EF19.png" width="602" height="234" style="width:15.921cm;height:6.198cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005EB0000024E23D6EF19.png" /></p>
+<ul>
+<li>In [1-3] die Tabelle [appointments] der vereinbarten Termine;<ul>
+<li><em>[id]</em>: Primärschlüssel;</li>
+<li><em>[version]</em>: Versionsnummer;</li>
+<li><em>[day]</em>: Datum des Termins;</li>
+<li><em>[slot_id]</em>: Fremdschlüssel, der auf den Primärschlüssel des Termin-Zeitfensters verweist. Da ein Zeitfenster mit einem Arzt verknüpft ist, wissen wir, welcher Arzt diesen Termin wahrnimmt;</li>
+<li><em>[client_id]</em>: Fremdschlüssel auf die Nummer (Primärschlüssel) des Kunden, der den Termin anfragt;</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/100000000000066300000266A61EA136.png" width="602" height="226" style="width:15.921cm;height:5.978cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000066300000266A61EA136.png" /></p>
+<ul>
+<li>in [1-3] die Tabelle <em>[users],</em> die die Benutzer auflistet, die die Anwendung <em>[NestJS]</em> nutzen dürfen;<ul>
+<li><em>[id, version]</em>: Primärschlüssel, Versionsnummer;</li>
+<li><em>[login, password]</em>: Anmeldedaten des Benutzers;</li>
+<li><em>[name]</em>: Name des Benutzers;</li>
+<li><em>[role]</em>: die Rolle des Benutzers. <em>[ADMIN]</em> hat vollen Zugriff. <em>[USER]</em> hat nur Lesezugriff. Dieser Benutzer kann den Terminkalender eines Arztes einsehen, aber keinen Termin vereinbaren oder stornieren;</li>
+</ul>
+</li>
+</ul>
+<p><span id="lancement-du-serveur-nestjs" name="lancement-du-serveur-nestjs" class="odt-bookmark-anchor"></span></p>
+<h2 id="34-den-nestjs-server-starten">3.4. <span style="color: #2e74b5">Den [NestJS]-Server starten</span></h2>
+<p>Starten Sie alle Laragon-Dienste (<em>[Start All]</em>), falls noch nicht geschehen. Starten Sie dann den NestJS-Server in einem VSCode-Terminal für das NestJS-Projekt:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm install
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>npm run start:dev
+</code></pre></div>
+<p>Die Konsole zeigt der Reihe nach an: den Start des <em>[NestJS]</em>-Moduls, die Liste der vom Controller bereitgestellten Routen und anschließend die Bestätigung des Starts:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>[Nest] RoutesResolver RdvMedecinsController {/}:
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>[Nest] RouterExplorer Mapped {/getAllDoctors, GET} route
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>[Nest] RouterExplorer Mapped {/getAllClients, GET} route
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>[Nest] RouterExplorer Mapped {/getAllSlots/:doctorId, GET} route
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>[Nest] RouterExplorer Mapped {/getDoctorAppointmentsOfDay/:doctorId/:day, GET} route
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>[Nest] RouterExplorer Mapped {/getDoctorScheduleOfDay/:doctorId/:day, GET} route
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>[Nest] RouterExplorer Mapped {/getDoctorById/:id, GET} route
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>[Nest] RouterExplorer Mapped {/getClientById/:id, GET} route
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>[Nest] RouterExplorer Mapped {/getSlotById/:id, GET} route
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>[Nest] RouterExplorer Mapped {/getAppointmentById/:id, GET} route
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>[Nest] RouterExplorer Mapped {/addAppointment, POST} route
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>[Nest] RouterExplorer Mapped {/deleteAppointment, POST} route
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>[Nest] RoutesResolver AuthController {/}:
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>[Nest] RouterExplorer Mapped {/login, POST} route
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>[Nest] NestApplication Nest application successfully started
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>[RdvMedecins] NestJS server started on http://localhost:8080
+</code></pre></div></td></tr></table></div>
+<p>Diese Konsolenausgabe bestätigt, dass der Server tatsächlich auf Port 8080 lauscht – <strong>genau derselbe Port wie beim Spring-Boot-Server im ursprünglichen Dokument</strong>, der aus diesem Grund bewusst gewählt wurde.</p>
+<p>Diese Routen bilden die JSON-API, die der Client <em>[Kotlin]</em> in Kapitel 4 nutzen wird. <em>[POST /login]</em> ist die einzige öffentliche Route: Sie liefert ein Token (JWT), das alle anderen Routen im Header verlangen (<em>[Authorization: Bearer &lt;token&gt;]</em>). Die lesenden Routen (<em>[GET …]</em>) sind für die Rollen ADMIN und USER zugänglich; die beiden Routen, die Daten ändern, <em>[POST /addAppointment] und [POST /deleteAppointment]</em>, sind der Rolle ADMIN vorbehalten. Fachliche Antworten sind in ein Objekt <em>[{ status, data }]</em> verpackt, bei dem <em>[status]</em> bei erfolgreicher Operation auf 0 gesetzt ist.</p>
+<p><span id="tester-le-serveur-avec-un-navigateur" name="tester-le-serveur-avec-un-navigateur" class="odt-bookmark-anchor"></span></p>
+<h2 id="35-den-server-mit-einem-browser-testen">3.5. <span style="color: #2e74b5">Den Server mit einem Browser testen</span></h2>
+<p>Da die Authentifizierung hinzugefügt wurde, <strong>erfordern alle</strong> Routen unter <em>[RdvMedecinsController]</em> ein gültiges JWT-Token; ein Browser allein kann sie daher nicht mehr direkt testen. Zum Beispiel:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>http://localhost:8080/getAllDoctors
+</code></pre></div>
+<p>liefert jetzt ohne Token den Fehler 401 Unauthorized:</p>
+<p><img src="images/100000000000048A000001AAB838806D.png" width="581" height="213" style="width:15.372cm;height:5.636cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000048A000001AAB838806D.png" /></p>
+<p>Das ist das erwartete Verhalten: Diese Antwort bestätigt, dass der Server seine Routen ordnungsgemäß schützt. Postman (nächster Abschnitt) wird benötigt, um ein Token zu erhalten und es anschließend zu verwenden.</p>
+<p><span id="tester-le-serveur-avec-postman" name="tester-le-serveur-avec-postman" class="odt-bookmark-anchor"></span></p>
+<h2 id="36-den-nestjs-server-mit-postman-testen">3.6. <span style="color: #2e74b5">Den [NestJS]-Server mit Postman testen</span></h2>
+<p>Das Werkzeug Postman ist unter der URL <em>[https://www.postman.com/downloads/]</em> erhältlich. Möglicherweise müssen Sie ein Konto erstellen.</p>
+<p>Starten Sie alle Laragon-Dienste und öffnen Sie dann die Postman-Desktopanwendung:</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/10000000000002DD000001CDECEE907C.png" width="294" height="184" style="display:inline-block; margin:4px;width:7.766cm;height:4.881cm;" class="odt-zoomable" data-zoom-src="images/10000000000002DD000001CDECEE907C.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000020D0000014C25D78584.png" width="263" height="166" style="display:inline-block; margin:4px;width:6.946cm;height:4.392cm;" class="odt-zoomable" data-zoom-src="images/100000000000020D0000014C25D78584.png" /></td></tr></table>
+
+<ul>
+<li>In [1-2] erstellen Sie eine HTTP-Anfrage an den Server zur Verwaltung der Arzttermine;</li>
+</ul>
+<p><span id="se-connecter-et-obtenir-un-jeton" name="se-connecter-et-obtenir-un-jeton" class="odt-bookmark-anchor"></span></p>
+<h3 id="361-anmelden-und-ein-token-erhalten">3.6.1. <span style="color: #1f4d78">Anmelden und ein Token erhalten</span></h3>
+<ol>
+<li>Erstellen Sie eine neue Postman-Anfrage mit der Methode <strong>POST</strong> und der URL http://localhost:8080/login;</li>
+</ol>
+<ol start="2">
+  <li>Wählen Sie auf der Registerkarte <b>[Body]</b> die Option „<b>raw</b>“, dann das Format <b>JSON</b> und geben Sie ein: {&quot;login&quot;: &quot;admin&quot;, &quot;password&quot;: &quot;admin&quot;} (oder „user/user“, um die Rolle USER zu testen);
+  </li>
+  <li>Senden Sie die Anfrage ab.
+  </li>
+</ol>
+
+<p><img src="images/100000000000057C000004484B69727F.png" width="602" height="470" style="width:15.921cm;height:12.427cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000057C000004484B69727F.png" /></p>
+<ul>
+  <li>in [1-2] die POST-Anfrage an den <i>[NestJS] </i>-Server, der auf Port 8080 läuft;
+  </li>
+  <li>in [3-5] der Body der Anfrage. Er übermittelt dem Server die JSON-Zeichenfolge mit den Anmeldedaten des Benutzers, der sich anmelden möchte, hier admin/admin;
+  </li>
+  <li>in [6] die Antwort des Servers;
+  </li>
+  <li>in [7] das Authentifizierungs-Token, das nachfolgende Anfragen an den Server senden müssen, um zu zeigen: „Ich bin bereits authentifiziert“;
+  </li>
+</ul>
+
+<p>Kopieren Sie den Wert von accessToken: Dies ist das Token, das ab jetzt in jeder weiteren Anfrage mitgesendet werden muss. Im obigen Beispiel ist das zu kopierende Token „eyJ...zoM“ (ohne die Anführungszeichen).</p>
+<p><span id="appeler-une-route-protegee-avec-le-jeton" name="appeler-une-route-protegee-avec-le-jeton" class="odt-bookmark-anchor"></span></p>
+<h3 id="362-eine-geschutzte-route-mit-dem-token-aufrufen">3.6.2. <span style="color: #1f4d78">Eine geschützte Route mit dem Token aufrufen</span></h3>
+<p>Wählen Sie für GET /getAllDoctors (oder jede andere Route des RdvMedecinsController) in Postman auf der Registerkarte <strong>Authorization</strong> den Typ <strong>Bearer Token</strong> und fügen Sie das oben kopierte Token ein (Postman fügt dann automatisch den Header Authorization: Bearer &lt;token&gt; hinzu).</p>
+<p><img src="images/10000000000005590000054A64AFF51E.png" width="602" height="595" style="width:15.921cm;height:15.744cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005590000054A64AFF51E.png" /></p>
+<ul>
+  <li>in [1-2] die an den Server gesendete Anfrage. Sie fordert die Liste der Ärzte in der Datenbank an;
+  </li>
+  <li>In [3-5] muss die Anfrage das Authentifizierungs-Token senden. Wählen Sie in [4] <i>[Bearer Token]</i> und fügen Sie in [5] das zuvor kopierte Authentifizierungs-Token ein;
+  </li>
+  <li>in [7] die Antwort des Servers;
+  </li>
+</ul>
+
+<p><span id="tester-les-routes-post-ajouterrv-supprimerrv" name="tester-les-routes-post-ajouterrv-supprimerrv" class="odt-bookmark-anchor"></span></p>
+<h3 id="363-die-post-routen-addappointment-deleteappointment-testen">3.6.3. <span style="color: #1f4d78">Die POST-Routen (/addAppointment, /deleteAppointment) testen</span></h3>
+<p>Gehen Sie wie oben vor (Methode POST, JSON-Body, Bearer Token), genauso wie das ursprüngliche Dokument die Chrome-Erweiterung „Advanced Rest [Client]“ für dieselben Routen verwendete.</p>
+<p><strong>Hinweis</strong>: Die folgenden Postman-Anfragen finden Sie in der Collection <em>[rdvmedecins-nestJS.postman_collection.json]</em>:</p>
+<p><img src="images/100000000000029C0000030B2B251723.png" width="334" height="390" style="width:8.837cm;height:10.306cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029C0000030B2B251723.png" /></p>
+<p>Drücken Sie in Postman Strg-0, um die Collection zu laden:</p>
+<p><img src="images/10000000000005F4000002A81D1A727B.png" width="602" height="268" style="width:15.921cm;height:7.103cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005F4000002A81D1A727B.png" /></p>
+<ul>
+  <li>Klicken Sie auf [1], um die Collection zu laden, und wählen Sie die Collection-Datei aus. Sobald die Collection geladen ist, zeigt sie ihre Anfragen an:
+  </li>
+</ul>
+
+<p><img src="images/10000000000003FC00000334CABD0B35.png" width="510" height="410" style="width:13.494cm;height:10.848cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003FC00000334CABD0B35.png" /></p>
+<p>So testen Sie /addAppointment mit dem Token eines Kontos mit der Rolle <strong>ADMIN</strong>:</p>
+<ol>
+  <li>Postman-Anfrage, Methode <b>POST</b>, URL http://localhost:8080/addAppointment;
+  </li>
+  <li><b>Authorization</b>-Registerkarte: Bearer Token, Admin-Token;
+  </li>
+  <li><b>[Body]</b>-Registerkarte, raw, JSON: {&quot;day&quot;: &quot;2026-09-13&quot;, &quot;clientId&quot;: 1, &quot;slotId&quot;: 5};
+  </li>
+  <li>Senden Sie die Anfrage ab.
+  </li>
+</ol>
+
+<p><img src="images/100000000000059200000189FEF74B2F.png" width="602" height="166" style="width:15.921cm;height:4.387cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000059200000189FEF74B2F.png" /></p>
+<ul>
+  <li>in [3-5] der Body der Anfrage;
+  </li>
+</ul>
+
+<p><img src="images/100000000000058A00000529ABEBAFF4.png" width="602" height="561" style="width:15.921cm;height:14.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058A00000529ABEBAFF4.png" /></p>
+<p>Sie können mit HeidiSQL überprüfen, dass der Datenbank ein Termin hinzugefügt wurde:</p>
+<p><img src="images/10000000000006A400000266AF435029.png" width="602" height="218" style="width:15.921cm;height:5.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006A400000266AF435029.png" /></p>
+<p>Um /deleteAppointment zu testen, gehen Sie genauso vor, mit dem Body {&quot;appointmentId&quot;: 2} (die ID des zu stornierenden Termins (8) oben).</p>
+<p><img src="images/100000000000058D0000034C0DB83F3D.png" width="602" height="357" style="width:15.921cm;height:9.454cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058D0000034C0DB83F3D.png" /></p>
+<ul>
+  <li>in [4] die Nummer oben, die den zu löschenden Termin bezeichnet;
+  </li>
+</ul>
+
+<p><img src="images/10000000000005B2000003C2245B59CC.png" width="602" height="397" style="width:15.921cm;height:10.504cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005B2000003C2245B59CC.png" /></p>
+<ul>
+  <li>in [5-7] das Authentifizierungs-Token;
+  </li>
+  <li>in [9] die Antwort des Servers. <i>[status=0] </i>zeigt an, dass die Operation erfolgreich war. Sie können dies mit HeidiSQL überprüfen:
+  </li>
+</ul>
+
+<p><img src="images/100000000000058D000002644C63689A.png" width="602" height="259" style="width:15.921cm;height:6.856cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058D000002644C63689A.png" /></p>
+<ul>
+  <li>in [3] existiert der Termin Nr. 2 nicht mehr;
+  </li>
+</ul>
+
+<p><strong>Probieren Sie es aus</strong>: Wiederholen Sie dieselbe Anfrage /addAppointment mit dem Token des Kontos <strong>USER</strong> (user/user) statt mit dem Admin-Token: Die Antwort lautet dann 403 Forbidden mit der Meldung „role [USER] does not allow this action (required role: ADMIN)“ – eine anschauliche Demonstration der rollenbasierten Zugriffskontrolle, die der Server umsetzt.</p>
+<h2 id="37-den-kotlin-client-zum-ersten-mal-starten">3.7. <span style="color: #2e74b5">Den Kotlin-Client zum ersten Mal starten</span></h2>
+<p>Öffnen Sie bei laufendem <em>[NestJS]</em>-Server das Projekt <strong><em>[rdvmedecins-kotlin-client]</em></strong> in Android Studio (siehe Kapitel 1) und starten Sie den Emulator. In der Symbolleiste von Android Studio sollte die Geräte-Dropdown-Liste den Emulator anzeigen (zum Beispiel [Pixel 8 API 37]); die Schaltfläche [Run] (das grüne Dreieck) daneben kompiliert die App, installiert sie auf dem Emulator und startet sie.</p>
+<p>Ohne Android Studio lassen sich dieselben Schritte über die Befehlszeile ausführen: Die Gradle-Aufgabe <strong><em>[installDebug]</em></strong> kompiliert und installiert die App, und anschließend startet <strong><em>[adb]</em></strong> sie:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>.\gradlew.bat installDebug
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>adb shell am start -n fr.rdvmedecins.client/.MainActivity
+</code></pre></div></td></tr></table></div>
+<ul>
+  <li><i><b>[installDebug]</b></i>: erstellt die App (wie <i><b>[assembleDebug]</b></i>; siehe Kapitel 1) und installiert sie dann auf dem verbundenen Gerät – Emulator oder Smartphone;
+  </li>
+  <li><i><b>[adb shell am start -n &lt;application&gt;/&lt;activity&gt;]</b></i>: weist den Android Activity Manager ([am], Activity Manager) an, die Activity <i><b>[MainActivity]</b></i> der App <i><b>[fr.rdvmedecins.client]</b></i> zu starten – was das System tut, wenn Sie auf das App-Symbol tippen.
+  </li>
+</ul>
+
+<p><img src="images/100000000000021C000004B07CBCFF0D.png" width="227" height="504" style="width:6.001cm;height:13.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021C000004B07CBCFF0D.png" /></p>
+<p>Zuerst erscheint der Anmeldebildschirm, genau wie bei den vorherigen Clients dieses Kurses: Mit der Datenbank des Servers werden zwei Demo-Konten mitgeliefert, <strong><em>[admin]/[admin]</em></strong> (Rolle <em>[ADMIN]</em>, voller Zugriff) und <strong><em>[user]/[user]</em></strong> (Rolle <em>[USER]</em>, nur Lesezugriff). Mit den Schaltflächen „FR“/„EN“ in der oberen rechten Ecke lässt sich die Oberfläche auch schon vor der Anmeldung auf Französisch umschalten.</p>
+<p>Das Feld „Server URL“ enthält standardmäßig <strong><em>[http://10.0.2.2:8080]</em></strong>: Im Emulator bezeichnet die spezielle Adresse <strong><em>[10.0.2.2]</em></strong> den Computer, auf dem der Emulator läuft, also den Server <em>[NestJS]</em>. Schlägt die Verbindung nach etwa zehn Sekunden fehl (Meldung: „Incorrect login or password.“), liegt es meist daran, dass diese Adresse nicht antwortet: Dies geschah auf dem Computer, der zum Verfassen dieses Dokuments verwendet wurde. Die Lösung wird in Kapitel 5 beschrieben: der Befehl <strong><em>[adb reverse tcp:8080 tcp:8080]</em></strong>, gefolgt von der URL <strong><em>[http://localhost:8080]</em></strong>.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Dieses Tutorial, geschrieben von der KI <strong>Claude</strong> von Anthropic im Auftrag von <strong>Serge Tahé</strong>, wird der Öffentlichkeit unter den Bedingungen der Lizenz
+        <em>Creative Commons Namensnennung – Nicht kommerziell –
+        Weitergabe unter gleichen Bedingungen 3.0 Unported</em> zur Verfügung gestellt.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

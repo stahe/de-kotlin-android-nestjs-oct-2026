@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Ein Client-Server-Beispiel mit Kotlin/NestJS">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/de-kotlin-android-nestjs-oct-2026/kapitel-1---einrichtung-der-arbeitsumgebung.html">
+      
+      
+        <link rel="prev" href="einfuhrung.html">
+      
+      
+        <link rel="next" href="kapitel-2---installation-des-nestjs-servers.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2. Kapitel 1 - Einrichtung der Arbeitsumgebung - Ein Client-Server-Beispiel mit Kotlin/NestJS</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Ein Client-Server-Beispiel mit Kotlin/NestJS";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-kapitel-1-einrichtung-der-arbeitsumgebung" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Ein Client-Server-Beispiel mit Kotlin/NestJS" class="md-header__button md-logo" aria-label="Ein Client-Server-Beispiel mit Kotlin/NestJS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ein Client-Server-Beispiel mit Kotlin/NestJS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Kapitel 1 - Einrichtung der Arbeitsumgebung
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum dunklen Modus wechseln"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Zum dunklen Modus wechseln" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="Zum hellen Modus wechseln"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Zum hellen Modus wechseln" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/de-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Ein Client-Server-Beispiel mit Kotlin/NestJS" class="md-nav__button md-logo" aria-label="Ein Client-Server-Beispiel mit Kotlin/NestJS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Ein Client-Server-Beispiel mit Kotlin/NestJS
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/de-kotlin-android-nestjs-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Willkommen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="einfuhrung.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Einführung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Kapitel 1 - Einrichtung der Arbeitsumgebung
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="kapitel-1---einrichtung-der-arbeitsumgebung.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Kapitel 1 - Einrichtung der Arbeitsumgebung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-installation-der-werkzeuge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Installation der Werkzeuge
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. Installation der Werkzeuge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211-android-studio-und-das-android-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1. Android Studio und das Android-SDK
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-ein-android-projekt-mit-android-studio-erstellen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Ein Android-Projekt mit Android Studio erstellen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-das-client-projekt-offnen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Das Client-Projekt öffnen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-einen-android-emulator-einrichten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Einen Android-Emulator einrichten
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4. Einen Android-Emulator einrichten">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241-das-android-smartphone-vorbereiten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4.1. Das Android-Smartphone vorbereiten
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-2---installation-des-nestjs-servers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Kapitel 2 - Installation des [NestJS]-Servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-3---einfuhrung-in-android-und-jetpack-compose.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Kapitel 3 - Einführung in Android und Jetpack Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-4---der-kotlin-client-fur-die-anwendung-rdvmedecins.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Kapitel 4 - Der Kotlin-Client für die Anwendung RdvMedecins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-5---ausfuhrung-der-app-emulator-smartphone-apk.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Kapitel 5 - Ausführung der App: Emulator, Smartphone, APK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kapitel-6---fazit-und-nachste-schritte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Kapitel 6 - Fazit und nächste Schritte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="2-kapitel-1-einrichtung-der-arbeitsumgebung">2. <span style="color: #2e74b5">Kapitel 1 - Einrichtung der Arbeitsumgebung</span></h1>
+<h2 id="21-installation-der-werkzeuge">2.1. <span style="color: #2e74b5">Installation der Werkzeuge</span></h2>
+<ul>
+<li>Node.js: Laden Sie Version 22 (oder höher) von nodejs.org herunter und installieren Sie sie. Überprüfen Sie die Installation in einem Terminal mit den Befehlen <strong><em>[node --version]</em></strong> und <strong><em>[npm --version]</em></strong>. Node.js wird nur für den <em>[NestJS]</em>-Server benötigt.</li>
+<li><em>[MySQL]</em> 8: Es wird in Kapitel 2 mit dem Werkzeug Laragon installiert, das auch das Administrationswerkzeug HeidiSQL mitbringt.</li>
+<li>Postman: Kostenlos auf postman.com erhältlich; es wird in Kapitel 2 zum Testen des Servers verwendet.</li>
+<li>Visual Studio Code: optional, zum Ansehen des Codes des Servers <em>[NestJS]</em>.</li>
+</ul>
+<p>Für den Client wird nur ein Werkzeug benötigt: <em>[Android Studio]</em>. Ein separates JDK (Java Development Kit) muss nicht installiert werden: Android Studio bringt ein eigenes mit, die JetBrains Runtime (<em>[JBR]</em>), die zum Ausführen von <em>[Gradle]</em>, dem Build-Werkzeug für Android-Projekte, verwendet wird. Auch der Kotlin-Compiler muss nicht installiert werden: Er ist ein Gradle-Plugin, das beim ersten Build des Projekts automatisch heruntergeladen wird.</p>
+<h3 id="211-android-studio-und-das-android-sdk">2.1.1. <span style="color: #1f4d78">Android Studio und das Android-SDK</span></h3>
+<p><em>[Android Studio]</em> kann kostenlos unter [https://developer.android.com/studio] heruntergeladen werden. Beim ersten Start bietet der Assistent eine Standardinstallation an: Akzeptieren Sie diese. Anschließend lädt er das Android-SDK herunter (die Plattformbibliotheken, Kompilierungswerkzeuge und den Emulator).</p>
+<p><img src="images/100000000000061F000004EF3DA687E7.png" width="491" height="396" style="width:13cm;height:10.478cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000061F000004EF3DA687E7.png" /></p>
+<p>Dieses Dokument wurde mit Android Studio Quail 4 (2026.1.4) getestet. Der Startbildschirm bietet über den Link [More Actions] Zugriff auf den [SDK Manager] und den [Virtual Device Manager], die später verwendet werden:</p>
+<p><img src="images/10000000000003980000036506662E07.png" width="454" height="428" style="width:12cm;height:11.335cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003980000036506662E07.png" /></p>
+<ul>
+<li>Der [SDK Manager] installiert und aktualisiert die Komponenten des Android-SDK. Registerkarte [SDK Platforms]: Prüfen Sie, ob eine aktuelle Android-Plattform installiert ist – das Projekt in diesem Dokument wird für API 37 (Android 17) kompiliert. Fehlt sie, lädt Gradle sie beim ersten Build automatisch herunter;</li>
+<li>Registerkarte [SDK Tools]: Prüfen Sie, ob [Android SDK Build-Tools], [Android SDK Platform-Tools] (das das Werkzeug <strong><em>[adb]</em></strong> enthält) und [Android Emulator] angehakt sind.</li>
+</ul>
+<p><img src="images/10000000000005D80000038F60765B8C.png" width="529" height="322" style="width:14cm;height:8.525cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005D80000038F60765B8C.png" /></p>
+<p>Das SDK wird standardmäßig im Ordner <strong><em>[%LOCALAPPDATA%\Android\Sdk]</em></strong> installiert (unter Windows). Zwei seiner Unterordner enthalten Befehlszeilenwerkzeuge, die in diesem Dokument verwendet werden: <strong><em>[platform-tools]</em></strong> (das Werkzeug <strong><em>[adb]</em></strong>, das ein Smartphone oder einen Emulator vom Computer aus steuert) und <strong><em>[emulator]</em></strong>. Sie können diese beiden Ordner zum [PATH] des Systems hinzufügen, damit Sie in einem Terminal einfach <strong><em>[adb]</em></strong> eingeben können.</p>
+<h2 id="22-ein-android-projekt-mit-android-studio-erstellen">2.2. <span style="color: #2e74b5">Ein Android-Projekt mit Android Studio erstellen</span></h2>
+<p>Der Client-Code liegt diesem Dokument bei (Ordner <strong><em>[rdvmedecins-kotlin-client]</em></strong>). Er wurde aus der Projektvorlage [Empty Activity] von Android Studio erstellt und anschließend erweitert. Sehen wir uns zunächst an, wie dieses Startprojekt erstellt wird: Es entspricht dem Befehl <strong><em>[flutter create]</em></strong> aus dem Flutter-Kurs. Klicken Sie auf dem Startbildschirm von Android Studio auf [New Project]:</p>
+<p><img src="images/10000000000003630000027295501388.png" width="529" height="382" style="width:14cm;height:10.109cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003630000027295501388.png" /></p>
+<ul>
+<li>Wählen Sie in der Kategorie [Phone and large screens] die Vorlage [Empty Activity]. Dies ist die „Jetpack Compose“-Vorlage: eine App mit einem einzigen Bildschirm, deren Oberfläche in Kotlin definiert ist. Die Vorlage [Empty Views Activity] verwendet dagegen das ältere, in XML beschriebene View-System, das in diesem Dokument nicht verwendet wird;</li>
+<li>Klicken Sie auf [Next].</li>
+</ul>
+<p><img src="images/100000000000036300000272252FA450.png" width="529" height="382" style="width:14cm;height:10.109cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000036300000272252FA450.png" /></p>
+<ul>
+<li>[Name]: der Name der Anwendung, der unter ihrem Symbol auf dem Smartphone angezeigt wird. Für dieses Dokument: <strong><em>[RdvMedecins]</em></strong>;</li>
+<li>[Package name]: die eindeutige Kennung der Anwendung in Form eines umgekehrten Domänennamens. Für dieses Dokument: <strong><em>[fr.rdvmedecins.client]</em></strong>. Dies ist zugleich das Kotlin-Basispaket für den Quellcode;</li>
+<li>[Save location]: der Projektordner;</li>
+<li>[Minimum SDK]: die älteste unterstützte Android-Version. Der Client in diesem Dokument erfordert API 26 (Android 8.0), was nahezu alle im Gebrauch befindlichen Smartphones abdeckt;</li>
+<li>[Build configuration language]: die Sprache der Gradle-Konfigurationsdateien. [Kotlin DSL (build.gradle.kts)] ist die empfohlene Wahl: Die Build-Konfiguration wird ebenfalls in Kotlin geschrieben;</li>
+<li>[Finish] erstellt das Projekt. Android Studio startet dann eine erste „Gradle-Synchronisierung“: Dabei werden Gradle selbst, das Android-Plugin, der Kotlin-Compiler und die vom Projekt deklarierten Bibliotheken heruntergeladen. Das kann beim ersten Mal mehrere Minuten dauern.</li>
+</ul>
+<p>Das erstellte Projekt hat die folgende Verzeichnisstruktur (die Dateien, die der Leser dieses Dokuments geändert oder hinzugefügt hat, werden in Kapitel 4 behandelt):</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>MyApplication/
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>├── settings.gradle.kts            # Globale Konfiguration: Repositories, Projektmodule
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>├── build.gradle.kts               # Von den Modulen verwendete Gradle-Plugins
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>├── gradle.properties              # Gradle-Optionen
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>├── gradlew, gradlew.bat           # der Gradle-„Wrapper" (siehe unten)
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>├── gradle/
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>│   ├── libs.versions.toml         # Versionskatalog der Bibliotheken
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>│   └── wrapper/                   # Vom Projekt verwendete Gradle-Version
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>└── app/                           # das Modul „application"
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    ├── build.gradle.kts           # Android-Konfiguration + Abhängigkeiten
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    └── src/main/
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        ├── AndroidManifest.xml    # der „Personalausweis" der Anwendung
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        ├── java/com/example/...   # der Kotlin-Code (Ordner traditionell java/ genannt)
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        └── res/                   # Ressourcen: Icons, Texte, Theme
+</code></pre></div></td></tr></table></div>
+<p><em>[Gradle]</em> spielt hier dieselbe Rolle, die <strong><em>[npm]</em></strong> für ein Node.js-Projekt oder <strong><em>[flutter]/[pub]</em></strong> für das Flutter-Projekt spielte: Es lädt die Abhängigkeiten herunter, kompiliert den Code und erzeugt die installierbare Anwendung, eine .apk-Datei. Die Skripte <strong><em>[gradlew]</em></strong> (Linux, macOS) und <strong><em>[gradlew.bat]</em></strong> (Windows), der Gradle-„Wrapper“, laden bei Bedarf genau die vom Projekt benötigte Gradle-Version herunter (festgelegt in <strong><em>[gradle/wrapper/gradle-wrapper.properties]</em></strong>): Eine globale Installation von Gradle ist nicht erforderlich.</p>
+<h2 id="23-das-client-projekt-offnen">2.3. <span style="color: #2e74b5">Das Client-Projekt öffnen</span></h2>
+<p>Wenn Sie den Code zu diesem Dokument heruntergeladen haben, befindet sich der Client im Ordner <strong><em>[rdvmedecins-kotlin-client]</em></strong>. Um ihn zu öffnen, klicken Sie auf dem Startbildschirm von Android Studio auf die Schaltfläche [Open] und wählen dann diesen Ordner aus (den Ordner, der die Datei <strong><em>[settings.gradle.kts]</em></strong> enthält). Android Studio startet dann die oben beschriebene Gradle-Synchronisierung. Anschließend erscheint das Projekt in der Ansicht [Project] (links); die Ansicht [Android], die Standardansicht, gruppiert die Dateien nach Typ (Manifeste, Kotlin+Java, Assets, Ressourcen) und nicht nach Ordnern.</p>
+<p>Das Projekt lässt sich auch ohne Android Studio über die Befehlszeile erstellen. In einem Terminal, das im Ordner <strong><em>[rdvmedecins-kotlin-client]</em></strong> geöffnet ist:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>$env:JAVA_HOME = "C:\Program Files\Android\Android Studio\jbr"
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>.\gradlew.bat assembleDebug
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>Die erste Zeile (PowerShell) teilt Gradle mit, welches JDK verwendet werden soll: das von Android Studio. Dies ist überflüssig, wenn die Variable <strong><em>[JAVA_HOME]</em></strong> auf dem Rechner bereits definiert ist;</li>
+<li>Die zweite Zeile führt die Gradle-Aufgabe <strong><em>[assembleDebug]</em></strong> aus, die das Projekt kompiliert und eine „Debug“-App erzeugt, die auf einem Emulator oder Smartphone installiert werden kann.</li>
+</ul>
+<p>Beim ersten Build lädt Gradle alles herunter, was es benötigt, und zeigt dann die Liste der Aufgaben an, die es ausführt:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>PS C:\Data\st-2026\dev\kotlin-nestjs-claude\rdvmedecins-kotlin-client&gt; .\gradlew.bat assembleDebug
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>Welcome to Gradle 9.6.0!
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>...
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>&gt; Task :app:processDebugResources
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>&gt; Task :app:compileDebugKotlin
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>&gt; Task :app:dexBuilderDebug
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>&gt; Task :app:packageDebug
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>&gt; Task :app:assembleDebug
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>BUILD SUCCESSFUL in 1m 11s
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>36 actionable tasks: 36 executed
+</code></pre></div></td></tr></table></div>
+<ul>
+<li><strong><em>[compileDebugKotlin]</em></strong>: Kompilierung des Kotlin-Codes in Java-Bytecode;</li>
+<li><strong><em>[dexBuilderDebug]</em></strong>: Umwandlung dieses Bytecodes in das DEX-Format, das von der virtuellen Android-Maschine ausgeführt wird (<em>[ART]</em>, Android Runtime);</li>
+<li><strong><em>[packageDebug]</em></strong>: Zusammenstellung der Datei <strong><em>[app/build/outputs/apk/debug/app-debug.apk]</em></strong>, der installierbaren Anwendung.</li>
+</ul>
+<h2 id="24-einen-android-emulator-einrichten">2.4. <span style="color: #2e74b5">Einen Android-Emulator einrichten</span></h2>
+<p>Wenn Sie kein Smartphone haben, können Sie die App auf einem Android-Emulator testen: einem virtuellen Smartphone, das in einem Fenster auf Ihrem Computer läuft. Dieser Abschnitt entspricht dem aus dem Flutter-Kurs.</p>
+<p>[Prerequisites]: Die Virtualisierung muss im [BIOS] des Computers aktiviert sein, und unter Windows muss das Feature [Windows Hypervisor Platform] angehakt sein ([Control Panel / Programs / Turn Windows features on or off]), was einen Neustart erfordert. Andernfalls startet der Emulator nicht oder läuft sehr langsam.</p>
+<p>Öffnen Sie den [Device Manager] in Android Studio: [More Actions / Virtual Device Manager] auf dem Startbildschirm oder [Tools / Device Manager], wenn ein Projekt geöffnet ist.</p>
+<p><img src="images/100000000000046D00000328B20C690A.png" width="454" height="323" style="width:12cm;height:8.558cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000046D00000328B20C690A.png" /></p>
+<p>Klicken Sie auf [Create Device], wählen Sie eine Vorlage (zum Beispiel [Pixel 8]) und dann [Next]. Wählen Sie ein aktuelles Android-Systemabbild für den Prozessor [x86_64] und laden Sie es über den Link [Download] daneben herunter; anschließend [Next] und [Finish].</p>
+<p><img src="images/1000000000000584000001DFE5F7CD5D.png" width="529" height="179" style="width:14cm;height:4.748cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000584000001DFE5F7CD5D.png" /></p>
+<p><img src="images/10000000000006F50000055B37D51A84.png" width="529" height="407" style="width:14cm;height:10.777cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006F50000055B37D51A84.png" /></p>
+<p>Starten Sie den Emulator über die Schaltfläche [Play] im [Device Manager]:</p>
+<p><img src="images/10000000000004250000011F4B23E279.png" width="491" height="133" style="width:13cm;height:3.515cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004250000011F4B23E279.png" /></p>
+<p>Sie können ihn auch von einem Terminal aus starten. Der erste Befehl listet die erstellten Emulatoren auf, der zweite startet einen davon:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>&amp; "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe" -list-avds
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>&amp; "$env:LOCALAPPDATA\Android\Sdk\emulator\emulator.exe" -avd Pixel_8
+</code></pre></div></td></tr></table></div>
+<p>Warten Sie, bis der Android-Startbildschirm im Emulatorfenster erscheint (der erste Start kann mehrere Minuten dauern), und überprüfen Sie dann, ob das Werkzeug <strong><em>[adb]</em></strong> ihn erkennt:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>&amp; "$env:LOCALAPPDATA\Android\Sdk\platform-tools\adb.exe" devices
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>List of devices attached
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>emulator-5554    device
+</code></pre></div></td></tr></table></div>
+<p>[Note]: Wenn <strong><em>[adb devices]</em></strong> statt <strong><em>[device]</em></strong> den Status <strong><em>[offline]</em></strong> anzeigt, ist der Emulator noch nicht vollständig gestartet, oder <strong><em>[adb]</em></strong> befindet sich in einem inkonsistenten Zustand. Warten Sie auf den Begrüßungsbildschirm und starten Sie <strong><em>[adb]</em></strong> bei Bedarf mit den Befehlen <strong><em>[adb kill-server]</em></strong> und anschließend <strong><em>[adb start-server]</em></strong> neu. Besteht das Problem weiterhin, prüfen Sie mit <strong><em>[where.exe adb]</em></strong>, dass im [PATH] kein anderes <strong><em>[adb]</em></strong> in einer anderen Version (zum Beispiel das eines früheren SDK) vorhanden ist.</p>
+<h3 id="241-das-android-smartphone-vorbereiten">2.4.1. <span style="color: #1f4d78">Das Android-Smartphone vorbereiten</span></h3>
+<p>Damit die App auf einem echten Android-Smartphone ausgeführt werden kann, muss das Smartphone so eingestellt werden, dass es vom Computer aus gesteuert werden darf:</p>
+<ul>
+<li>Aktivieren Sie die Entwickleroptionen: Öffnen Sie [Settings / About phone] und tippen Sie mehrmals (in der Regel siebenmal) auf [Build number], bis das Smartphone anzeigt, dass Sie nun Entwickler sind. Die genauen Bezeichnungen variieren je nach Hersteller;</li>
+<li>Aktivieren Sie [USB debugging] im Menü [Developer options] (das im vorherigen Schritt hinzugefügt wurde);</li>
+<li>Verbinden Sie das Smartphone über ein USB-Kabel mit dem Computer, das Daten überträgt (nicht nur das Smartphone lädt), und bestätigen Sie auf dem Smartphone die Anfrage zur Autorisierung des USB-Debuggings. Wenn das Smartphone unter Windows nicht erkannt wird, installieren Sie den USB-Treiber des Herstellers („OEM USB drivers“, siehe [https://developer.android.com/studio/run/oem-usb]);</li>
+<li>Prüfen Sie, ob das Smartphone in der Liste erscheint, die von <strong><em>[adb devices]</em></strong> angezeigt wird.</li>
+</ul>
+<p>Das Smartphone greift auf den <em>[NestJS]</em>-Server entweder über die IP-Adresse des Computers im lokalen Netzwerk oder über das USB-Kabel mit dem Befehl <strong><em>[adb reverse]</em></strong> zu: Diese Einstellungen werden in Kapitel 5 beschrieben.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        Dieses Tutorial, geschrieben von der KI <strong>Claude</strong> von Anthropic im Auftrag von <strong>Serge Tahé</strong>, wird der Öffentlichkeit unter den Bedingungen der Lizenz
+        <em>Creative Commons Namensnennung – Nicht kommerziell –
+        Weitergabe unter gleichen Bedingungen 3.0 Unported</em> zur Verfügung gestellt.
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
